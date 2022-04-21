@@ -1,0 +1,55 @@
+---
+http_interactions:
+  - request:
+      method: get
+      uri: https://inpol.mazowieckie.pl/api/reservations/queue/3ab99932-8e53-4dff-9abf-45b8c6286a99/2022-05-19/slots
+      body:
+        encoding: US-ASCII
+        string: ""
+      headers:
+        Accept:
+          - "*/*"
+        User-Agent:
+          - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88
+            Safari/537.36
+        Authorization:
+          - Bearer auth-token-123
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Host:
+          - inpol.mazowieckie.pl
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Transfer-Encoding:
+          - chunked
+        Content-Type:
+          - application/json
+        Server:
+          - Microsoft-IIS/10.0
+        X-Powered-By:
+          - ASP.NET
+        Referrer-Policy:
+          - no-referrer,same-origin,strict-origin,strict-origin-when-cross-origin
+        Date:
+          - Thu, 21 Apr 2022 17:46:47 GMT
+        X-Frame-Options:
+          - SAMEORIGIN
+        X-Xss-Protection:
+          - 1;mode=block
+        X-Content-Type-Options:
+          - nosniff
+        Strict-Transport-Security:
+          - max-age=16000000; includeSubDomains; preload;
+        Content-Security-Policy:
+          - script-src 'self' https://inpol.mazowiewcie.pl https://www.google.com/recaptcha/
+            https://www.gstatic.com/recaptcha/;object-src 'none';default-src https://inpol.mazowieckie.pl;style-src
+            'unsafe-inline' 'self';img-src 'self';connect-src 'self'; frame-src https://www.google.com/recaptcha/;
+            font-src 'self' fonts.gstatic.com
+      body:
+        encoding: UTF-8
+        string: '[{"id":12960377,"date":"2022-05-19T08:35:00","count":10},{"id":12960388,"date":"2022-05-19T09:00:00","count":13},{"id":12960401,"date":"2022-05-19T09:25:00","count":14},{"id":12960415,"date":"2022-05-19T09:50:00","count":14},{"id":12960431,"date":"2022-05-19T10:15:00","count":12},{"id":12960459,"date":"2022-05-19T11:05:00","count":7},{"id":12960466,"date":"2022-05-19T11:30:00","count":9},{"id":12960475,"date":"2022-05-19T11:55:00","count":9},{"id":12960499,"date":"2022-05-19T12:45:00","count":13},{"id":12960513,"date":"2022-05-19T13:10:00","count":13},{"id":12960526,"date":"2022-05-19T13:35:00","count":14},{"id":12960555,"date":"2022-05-19T14:25:00","count":13}]'
+    recorded_at: Thu, 21 Apr 2022 17:46:47 GMT
+recorded_with: VCR 6.1.0

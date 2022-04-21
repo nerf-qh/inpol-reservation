@@ -39,14 +39,26 @@ AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
       h = headers_with_auth
 
       response = RestClient.get("#{host}/api/reservations/queue/#{location_id}/#{date}/slots", h)
-      response.code == 200 ? { success: true, slots: response.body } : { success: false }
+      if response.code == 200
+        { success: true, slots: JSON.parse(response.body) }
+      else
+        { success: false, slots: [] }
+      end
+    rescue RestClient::BadRequest => e
+      raise e unless e.response.code == 400 # there is no slots
+
+      return { success: false, slots: [] } if e.response.code == 504 # timeout
+
+      { success: true, slots: [] }
     end
 
     def reserve(location_id:, case_id:, slot_id:, name:, last_name:, date_of_birth:)
-      params = { proceedingId: case_id, slotId: slot_id, name: name, lastName: last_name, dateOfBirth: date_of_birth }
-      h = headers_with_auth
+      date = date_of_birth_format(date_of_birth)
+      params = { proceedingId: case_id.downcase, slotId: slot_id, name: name, lastName: last_name, dateOfBirth: date }
+      h = headers_with_auth(content_type: 'application/json', referer: "https://inpol.mazowieckie.pl/home/cases/#{case_id}")
       response = RestClient.post("#{host}/api/reservations/queue/#{location_id}/reserve", params.to_json, h)
-      response.code == 200
+      check_response_code!(response)
+      response.body
     end
 
     private
@@ -66,6 +78,10 @@ AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
 
     def check_response_code!(response, code = 200)
       raise StandardError, "Unable to process #{response.code}" if response.code != code
+    end
+
+    def date_of_birth_format(date)
+      Time.parse(date).strftime('%FT%TZ')
     end
   end
 end

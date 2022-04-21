@@ -1,0 +1,71 @@
+---
+http_interactions:
+  - request:
+      method: post
+      uri: https://inpol.mazowieckie.pl/api/reservations/queue/3ab99932-8e53-4dff-9abf-45b8c6286a99/reserve
+      headers:
+        Accept:
+          - "*/*"
+        User-Agent:
+          - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88
+            Safari/537.36
+        Content-Type:
+          - application/json
+        Referer:
+          - https://inpol.mazowieckie.pl/home/cases/D92155F8-FA08-4BF3-A671-0B0164A8E7A0
+        Authorization: "Bearer auth-token-123"
+        Content-Length: "152"
+        Accept-Encoding: "gzip;q=1.0,deflate;q=0.6,identity;q=0.3"
+        Host: "inpol.mazowieckie.pl"
+        Authorization:
+          - Bearer auth-token-123
+        Content-Length:
+          - "152"
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Host:
+          - inpol.mazowieckie.pl
+      body:
+        encoding: UTF-8
+        string: '{"proceedingId":"d92155f8-fa08-4bf3-a671-0b0164a8e7a0","slotId":12960386,"name":"Stafaniya","lastName":"Krautsova","dateOfBirth":"2019-12-17T00:00:00Z"}'
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Transfer-Encoding:
+          - chunked
+        Content-Type:
+          - text/plain; charset=utf-8
+        Vary:
+          - Accept-Encoding
+        Server:
+          - Microsoft-IIS/10.0
+        Access-Control-Allow-Origin:
+          - https://inpol.mazowieckie.pl
+        Access-Control-Allow-Credentials:
+          - "true"
+        X-Powered-By:
+          - ASP.NET
+        Referrer-Policy:
+          - no-referrer,same-origin,strict-origin,strict-origin-when-cross-origin
+        Date:
+          - Thu, 21 Apr 2022 16:27:36 GMT
+        X-Frame-Options:
+          - SAMEORIGIN
+        X-Xss-Protection:
+          - 1;mode=block
+        X-Content-Type-Options:
+          - nosniff
+        Strict-Transport-Security:
+          - max-age=16000000; includeSubDomains; preload;
+        Content-Security-Policy:
+          - script-src 'self' https://inpol.mazowiewcie.pl https://www.google.com/recaptcha/
+            https://www.gstatic.com/recaptcha/;object-src 'none';default-src https://inpol.mazowieckie.pl;style-src
+            'unsafe-inline' 'self';img-src 'self';connect-src 'self'; frame-src https://www.google.com/recaptcha/;
+            font-src 'self' fonts.gstatic.com
+      body:
+        encoding: ASCII-8BIT
+        string: bd243d39-d060-4240-a5d2-ed5d85315e61
+    recorded_at: Thu, 21 Apr 2022 16:27:36 GMT
+recorded_with: VCR 6.1.0
